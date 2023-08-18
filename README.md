@@ -70,7 +70,7 @@ exit 0
 
 then fill the `onbatt.sh` file with the contents from this github repo
 
-5. Run these commands to grant permissions to the script and run it: `chmod +x ./onbatt.sh && ./onbatt.sh` and it should run some commands and send you the email!
+5. Run these commands to grant permissions to the script and run it: `chmod +x ./onbatt.sh && ./onbatt.sh` and it should run some commands and send you the email! (it'll only send the email if the UPS has no power!)
 
 # Setting up the battery alerts
 
