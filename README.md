@@ -74,7 +74,9 @@ then fill the `onbatt.sh` file with the contents from this github repo
 
 # Setting up the battery alerts
 
-1. Run this: `crontab -e` and scroll all the way to the bottom and paste these lines:
+1. Run these commands `nano /etc/apcupsd/scripts/lowbatt.sh` and fill it with the desired contents (do the same with the /etc/apcupsd/scripts/critlowbatt.sh).
+2. Make sure to grant the right perms for the scripts: `chmod +x /etc/apcupsd/scripts/lowbatt.sh && chmod +x /etc/apcupsd/scripts/critlowbatt.sh`
+3. Run this: `crontab -e` and scroll all the way to the bottom and paste these lines:
 
 ```
 */1 * * * * /bin/bash /etc/apcupsd/scripts/lowbatt.sh
