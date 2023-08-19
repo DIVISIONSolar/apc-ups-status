@@ -89,6 +89,6 @@ this will save the crontab file and start running the crons.
 
 Want to change how often they run?
 
-Go to: https://crontab.cronhub.io/
+Go to: https://it-tools.tech/crontab-generator
 
 ## If you need any help feel free to email me: `me@joshsevero.dev`
