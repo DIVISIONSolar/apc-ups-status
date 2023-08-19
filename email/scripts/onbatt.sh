@@ -7,6 +7,9 @@ SENDER_ADDRESS=""
 
 # Check the UPS status using the apcaccess command
 status=$(apcaccess status 2>/dev/null | grep STATUS | awk '{print $3}')
+battery_percentage=$(apcaccess status 2>/dev/null | awk '/BCHARGE/ {print $3}')
+remaining_runtime=$(apcaccess status 2>/dev/null | awk '/TIMELEFT/ {print $3}')
+ups_hostname=$(hostname)
 
 # Check if UPS is offline and send an email if necessary
 if [ "$status" != "ONLINE" ]; then
@@ -18,7 +21,8 @@ if [ "$status" != "ONLINE" ]; then
         echo "From: $SENDER_ADDRESS"
         echo "Subject: $EMAIL_SUBJECT"
         echo
-        echo "NA-PA-01 UPS is offline. Please check the status."
+        echo "$ups_hostname is offline. Please check the status."
+        echo "Power: $battery_percentage % && Remaining Time: $remaining_runtime Minutes"
     } | ssmtp -vvv $EMAIL_TO
 else
     echo "APC UPS is online."
