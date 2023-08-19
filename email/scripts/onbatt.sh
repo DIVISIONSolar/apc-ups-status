@@ -22,7 +22,8 @@ if [ "$status" != "ONLINE" ]; then
         echo "Subject: $EMAIL_SUBJECT"
         echo
         echo "$ups_hostname is offline. Please check the status."
-        echo "Power: $battery_percentage % && Remaining Time: $remaining_runtime Minutes"
+        echo "Current Level: $battery_percentage%"
+        echo "Estimated time remaining: $remaining_runtime"
     } | ssmtp -vvv $EMAIL_TO
 else
     echo "APC UPS is online."
