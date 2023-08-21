@@ -12,7 +12,7 @@ remaining_runtime=$(apcaccess status 2>/dev/null | awk '/TIMELEFT/ {print $3}')
 ups_hostname=$(hostname)
 
 # Check if UPS is online and send an email if necessary
-if [ "$status" != "ONLINE" ]; then
+if [ "$status" != "OFFLINE" ]; then
     echo "APC UPS is online. Sending email notification."
     
     # Send email using ssmtp
